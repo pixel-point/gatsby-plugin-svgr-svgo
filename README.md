@@ -1,5 +1,7 @@
 # gatsby-plugin-svgr-svgo
 
+[![npm version](https://badge.fury.io/js/gatsby-plugin-svgr-svgo.svg)](https://badge.fury.io/js/gatsby-plugin-svgr-svgo)
+
 Plugin allows you to use SVGs as react components, configure SVGO(SVG optimization) settings and declare rules for SVG url loader with or without optimization.
 
 ## Install
