@@ -13,10 +13,8 @@ steps:
   - name: publish
     image: plugins/npm
     settings:
-      # username: pixel-point
       token:
         from_secret: npm_token
-      # email: info@pixelpoint.io
 
   - name: build_status_notification
     image: plugins/slack
@@ -31,6 +29,6 @@ steps:
         {{/success}}
     when:
       status: [success, failure]
-# trigger:
-#   event:
-#     - tag
+trigger:
+  event:
+    - tag
