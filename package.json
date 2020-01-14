@@ -5,6 +5,15 @@
   "main": "index.js",
   "author": "pixel-point",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pixel-point/gatsby-plugin-svgr-svgo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pixel-point/gatsby-plugin-svgr-svgo/issues",
+    "email": "info@pixelpoint.io"
+  },
+  "homepage": "https://github.com/pixel-point/gatsby-plugin-svgr-svgo",
   "keywords": [
     "gatsby",
     "gatsby-plugin",
