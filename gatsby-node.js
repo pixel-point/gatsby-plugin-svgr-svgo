@@ -17,7 +17,7 @@ exports.onCreateWebpackConfig = ({
   getConfig,
   actions,
   loaders,
-  stage
+  stage,
 }, { inlineSvgOptions = defaultInlineSvgOptions, urlSvgOptions = defaultUrlSvgOptions }) => {
   const { replaceWebpackConfig, setWebpackConfig } = actions;
   const existingConfig = getConfig();
@@ -27,9 +27,8 @@ exports.onCreateWebpackConfig = ({
     'develop',
     'develop-html',
     'build-html',
-    'build-javascript'
+    'build-javascript',
   ].includes(stage)) {
-
     // Remove any svg rules from existing configuration
     const rules = existingConfig.module.rules
       .map((rule) => {
@@ -59,7 +58,7 @@ exports.onCreateWebpackConfig = ({
         {
           loader: require.resolve('@svgr/webpack'),
           options: {
-            svgo: option.svgo,
+            svgo: option.svgo === undefined ? true : option.svgo,
             svgoConfig: option.svgoConfig,
           },
         },
