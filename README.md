@@ -22,7 +22,7 @@ plugins: [
 ]
 ```
 By default there are two rules will be added:
-1. SVG as a react component(innline svg), SVGO enabled for all SVGs that have .inline postfix. Example: ``cat.inline.svg``
+1. SVG as a react component(innline svg), SVGO enabled for all SVGs that have .inline postfix. Example: `cat.inline.svg`
 ```js
 import React from 'react';
 import CatInlineSvg from '../images/cat.inline.svg';
@@ -38,7 +38,7 @@ export default IndexPage;
 
 ```
 
-2. SVG as a file that available by url, SVGO enabled for all svgs that have ``.svg``. Example: ``cat.svg``.
+2. SVG as a file that available by url, SVGO enabled for all svgs that have `.svg`. Example: `cat.svg`.
 
 ```js
 import React from 'react';
@@ -86,13 +86,13 @@ plugins: [
     }
 ]
 ```
-You can decalre various rules based on loader that should be used under ``inlineSvgOptions`` and ```urlSvgOptions```.
+You can decalre various rules based on loader that should be used under `inlineSvgOptions` and `urlSvgOptions`.
 
-``test`` - pattern that will be used to match file name
+`test` - pattern that will be used to match file name
 
-``svgoConfig`` - accepts plugins list with settings, list of available plugins(options) you can find [here](https://github.com/svg/svgo#what-it-can-do)
+`svgoConfig` - accepts plugins list with settings, list of available plugins(options) you can find [here](https://github.com/svg/svgo#what-it-can-do)
 
-``svgo`` - disables SVGO if set in ``false``
+`svgo` - disables SVGO if set in `false`
 
 ### SVGO disabled example:
 
