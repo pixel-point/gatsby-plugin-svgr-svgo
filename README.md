@@ -119,6 +119,8 @@ plugins: [
 
 By default webpack `url-loader` has a fallback to `file-loader` that converts the file from the original extension to base64. So if you want to set the limit from which it should be loaded directly from url instead of base64 loading just use limit option within `urlLoaderOptions`.
 
+Limits you set in bytes. Read about more options [there](https://webpack.js.org/loaders/url-loader/)
+
 ```js
 urlSvgOptions: [
   {
