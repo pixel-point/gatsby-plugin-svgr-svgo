@@ -89,7 +89,7 @@ plugins: [
 ];
 ```
 
-You can decalre various rules based on loader that should be used under `inlineSvgOptions` and `urlSvgOptions`.
+You can declare various rules based on loader that should be used under `inlineSvgOptions` and `urlSvgOptions`.
 
 `test` - pattern that will be used to match file name
 
