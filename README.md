@@ -23,7 +23,7 @@ plugins: [`gatsby-plugin-svgr-svgo`];
 
 By default there are two rules will be added:
 
-1. SVG as a react component(innline svg), SVGO enabled for all SVGs that have .inline postfix. Example: `cat.inline.svg`
+1. SVG as a react component(inline svg), SVGO enabled for all SVGs that have .inline postfix. Example: `cat.inline.svg`
 
 ```js
 import React from "react";
@@ -89,7 +89,7 @@ plugins: [
 ];
 ```
 
-You can decalre various rules based on loader that should be used under `inlineSvgOptions` and `urlSvgOptions`.
+You can declare various rules based on loader that should be used under `inlineSvgOptions` and `urlSvgOptions`.
 
 `test` - pattern that will be used to match file name
 
