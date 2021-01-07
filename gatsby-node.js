@@ -32,9 +32,9 @@ exports.onCreateWebpackConfig = (
     const rules = existingConfig.module.rules.map(rule => {
       if (
         String(rule.test) ===
-        String(/\.(ico|svg|jpg|jpeg|png|gif|webp)(\?.*)?$/)
+        String(/\.(ico|svg|jpg|jpeg|png|gif|webp|avif)(\?.*)?$/)
       ) {
-        return { ...rule, test: /\.(ico|jpg|jpeg|png|gif|webp)(\?.*)?$/ };
+        return { ...rule, test: /\.(ico|jpg|jpeg|png|gif|webp|avif)(\?.*)?$/ };
       }
 
       return rule;
