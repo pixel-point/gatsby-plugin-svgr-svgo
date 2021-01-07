@@ -7,8 +7,15 @@ Plugin allows you to use SVGs as react components, configure SVGO(SVG optimizati
 
 ## Install
 
+For Gatsby 2.3.0+ versions use
+
 ```
 npm install gatsby-plugin-svgr-svgo @svgr/webpack --save
+```
+
+For older versions 
+```
+npm install gatsby-plugin-svgr-svgo@v1.0.12 @svgr/webpack --save
 ```
 
 ## Setup
