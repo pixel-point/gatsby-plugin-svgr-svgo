@@ -9,6 +9,8 @@ const defaultUrlSvgOptions = [
   {
     test: /\.svg$/,
     svgo: true,
+    name: "static/[name]-[hash].[ext]",
+    limit: 512,
   },
 ];
 
@@ -21,6 +23,13 @@ exports.onCreateWebpackConfig = (
 ) => {
   const { replaceWebpackConfig, setWebpackConfig } = actions;
   const existingConfig = getConfig();
+
+  if (!urlSvgOptions.name) {
+    urlSvgOptions.name = "static/[name]-[hash].[ext]";
+  }
+  if (!urlSvgOptions.limit) {
+    urlSvgOptions.limit = 512;
+  }
 
   // Run only for the specificified  build stages
   if (
