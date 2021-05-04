@@ -1,3 +1,8 @@
+const defaultUrlLoaderOptions = {
+  name: "static/[name]-[hash].[ext]",
+  limit: 512,
+};
+
 const defaultInlineSvgOptions = [
   {
     test: /\.inline.svg$/,
@@ -9,8 +14,7 @@ const defaultUrlSvgOptions = [
   {
     test: /\.svg$/,
     svgo: true,
-    name: "static/[name]-[hash].[ext]",
-    limit: 512,
+    urlLoaderOptions: defaultUrlLoaderOptions,
   },
 ];
 
@@ -23,13 +27,6 @@ exports.onCreateWebpackConfig = (
 ) => {
   const { replaceWebpackConfig, setWebpackConfig } = actions;
   const existingConfig = getConfig();
-
-  if (!urlSvgOptions.name) {
-    urlSvgOptions.name = "static/[name]-[hash].[ext]";
-  }
-  if (!urlSvgOptions.limit) {
-    urlSvgOptions.limit = 512;
-  }
 
   // Run only for the specificified  build stages
   if (
@@ -78,6 +75,14 @@ exports.onCreateWebpackConfig = (
     urlSvgOptions.forEach((option) => {
       const svgoFlag = !!option.svgoConfig || option.svgo;
 
+      let { urlLoaderOptions = {} } = option;
+      if (!urlLoaderOptions.name) {
+        urlLoaderOptions.name = defaultUrlLoaderOptions.name;
+      }
+      if (!urlLoaderOptions.limit) {
+        urlLoaderOptions.limit = defaultUrlLoaderOptions.limit;
+      }
+
       const svgoLoader = {
         loader: require.resolve("svgo-loader"),
         options: {
@@ -87,7 +92,7 @@ exports.onCreateWebpackConfig = (
       const svgUrlLoaders = [
         {
           loader: "url-loader",
-          options: option.urlLoaderOptions,
+          options: urlLoaderOptions,
         },
       ];
       // Don't push svgo loader at all if it's disabled
