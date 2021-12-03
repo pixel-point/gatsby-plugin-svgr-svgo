@@ -80,8 +80,12 @@ plugins: [
           svgoConfig: {
             plugins: [
               {
-                removeViewBox: false,
+                name: "preset-default",
+                params: {
+                  overrides: [{ name: "removeViewBox", active: false }],
+                },
               },
+              "prefixIds",
             ],
           },
         },
@@ -90,11 +94,7 @@ plugins: [
         {
           test: /\.svg$/,
           svgoConfig: {
-            plugins: [
-              {
-                removeViewBox: false,
-              },
-            ],
+            plugins: [{ name: "removeViewBox", active: false }],
           },
         },
       ],
@@ -111,7 +111,7 @@ You can declare various rules based on loader that should be used under `inlineS
 
 `svgo` - disables SVGO if set in `false`
 
-### SVGO disabled example:
+### SVGO disabled example
 
 ```js
 plugins: [
@@ -140,15 +140,11 @@ urlSvgOptions: [
   {
     test: /\.svg$/,
     svgoConfig: {
-      plugins: [
-        {
-          removeViewBox: false,
-        },
-      ],
+      plugins: [{ name: "removeViewBox", active: false }],
     },
     urlLoaderOptions: {
       limit: 512,
     },
   },
-],
+];
 ```

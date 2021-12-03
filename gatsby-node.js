@@ -19,7 +19,7 @@ const defaultUrlSvgOptions = [
 ];
 
 exports.onCreateWebpackConfig = (
-  { getConfig, actions, loaders, stage },
+  { getConfig, actions, stage },
   {
     inlineSvgOptions = defaultInlineSvgOptions,
     urlSvgOptions = defaultUrlSvgOptions,
@@ -28,7 +28,7 @@ exports.onCreateWebpackConfig = (
   const { replaceWebpackConfig, setWebpackConfig } = actions;
   const existingConfig = getConfig();
 
-  // Run only for the specificified  build stages
+  // Run only for the specificified build stages
   if (
     ["develop", "develop-html", "build-html", "build-javascript"].includes(
       stage
@@ -56,19 +56,21 @@ exports.onCreateWebpackConfig = (
     });
 
     // Prepare svg rules for inline usage
-    const inlineSvgRules = inlineSvgOptions.map((option) => ({
-      test: option.test,
-      use: [
-        {
-          loader: require.resolve("@svgr/webpack"),
-          options: {
-            svgo: option.svgo === undefined ? true : option.svgo,
-            svgoConfig: option.svgoConfig,
+    const inlineSvgRules = inlineSvgOptions.map(
+      ({ test, svgo, ...otherOptions }) => ({
+        test: test,
+        use: [
+          {
+            loader: require.resolve("@svgr/webpack"),
+            options: {
+              svgo: svgo === undefined ? true : svgo,
+              ...otherOptions,
+            },
           },
-        },
-      ],
-      issuer: /\.(js|jsx|ts|tsx)$/,
-    }));
+        ],
+        issuer: /\.(js|jsx|ts|tsx)$/,
+      })
+    );
 
     const urlSvgRules = [];
     // Prepare svg rules for url loader usage with SVGO
