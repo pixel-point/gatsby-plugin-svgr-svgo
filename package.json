@@ -1,6 +1,6 @@
 {
   "name": "gatsby-plugin-svgr-svgo",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "description": "Plugin allows you to use SVGs as react components, configure SVGO(SVG optimization) settings and declare rules for SVG url loader with or without optimization.",
   "main": "index.js",
   "author": "pixel-point",
